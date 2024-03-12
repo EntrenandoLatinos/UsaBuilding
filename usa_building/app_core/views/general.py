@@ -139,10 +139,12 @@ def works(request):
     servicios = Service.objects.all()
     gallery = WorkImage.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
+    about = About.objects.all().last()
     context = {
         'contact': contact,
         'servicios': servicios,
         'works': gallery,
+        'about': about,
         'social_media': social_media
     }
     if request.method == 'POST':
@@ -192,9 +194,11 @@ def contact(request):
     testimonials = Testimonial.objects.all()
     social_media = SocialMedia.objects.all()
     works = WorkImage.objects.all().order_by('?')[:1]
+    about = About.objects.all().last()
     context = {
         'servicios': servicios,
         'contact': contact,
+        'about': about,
         'testimonials': testimonials,
         'social_media': social_media,
         'works': works
