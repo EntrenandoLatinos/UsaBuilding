@@ -2333,7 +2333,7 @@ input[type=radio]:checked + label:before {
 
 .rating-bx {
     color: #ffc300;
-    font-size: 14px;
+    font-size: 18px;
 }
 .rating-bx i {
     margin: 0 2px;

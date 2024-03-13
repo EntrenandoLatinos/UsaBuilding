@@ -17,7 +17,7 @@ def index(request):
     indicators = Counter.objects.all().last()
     servicios = Service.objects.all()
     works = WorkImage.objects.all().order_by('?')[:6]
-    testimonials = Testimonial.objects.all()
+    testimonials = Testimonial.objects.all().order_by('?')
     partners = Partner.objects.all()
     social_media = SocialMedia.objects.all()
     context = {
@@ -53,7 +53,7 @@ def about(request):
     skills = Skill.objects.all().last()
     servicios = Service.objects.all()
     indicators = Counter.objects.all().last()
-    testimonials = Testimonial.objects.all()
+    testimonials = Testimonial.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
     works = WorkImage.objects.all().order_by('?')[:1]
     context = {
@@ -191,7 +191,7 @@ def faq(request):
 def contact(request):
     contact = Contact.objects.all().last()
     servicios = Service.objects.all()
-    testimonials = Testimonial.objects.all()
+    testimonials = Testimonial.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
     works = WorkImage.objects.all().order_by('?')[:1]
     about = About.objects.all().last()
