@@ -6,16 +6,16 @@ __pycache__/
 .idea/
 
 # App migrations, media folders, settings
-# usa_building/app_core/migrations/
-# usa_building/app_user/migrations/
-# usa_building/media/
-# usa_building/static/
-# usa_building/static/
-# usa_building/settings/development.py
+usa_building/app_core/migrations/
+usa_building/app_user/migrations/
+usa_building/media/
+usa_building/static/
+usa_building/static/
+usa_building/settings/development.py
 
 # Archivos de migraciones
-# migrations/*
-# *_initial.py
+migrations/*
+*_initial.py
 
 # Base de datos SQLite
 *.sqlite3
