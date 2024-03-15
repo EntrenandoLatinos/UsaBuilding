@@ -1,7 +1,7 @@
 import logging
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from app_core.models import Contact, Banner, About, Skill, Counter, Service, SubService, WorkImage, Testimonial, \
     Partner, Faq, Privacy, SocialMedia
 
@@ -108,7 +108,7 @@ def services(request):
 def services_view(request, pk):
     contact = Contact.objects.all().last()
     servicios = Service.objects.all()
-    servicio = Service.objects.get(pk=pk)
+    servicio = get_object_or_404(Service, pk=pk)
     subservicios = SubService.objects.filter(service=pk)
     works = WorkImage.objects.all().order_by('?')[:1]
     social_media = SocialMedia.objects.all()
