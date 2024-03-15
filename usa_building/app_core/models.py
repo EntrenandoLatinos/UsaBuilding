@@ -48,6 +48,7 @@ class AuditoriaFecha(models.Model):
 
 class Contact(AuditoriaFecha):
     location = models.CharField("Location", max_length=300, null=True, blank=True)
+    city = models.CharField("City", max_length=100, null=True, blank=True)
     phone1 = models.CharField("Phone 2", max_length=60, null=True, blank=True)
     phone2 = models.CharField("Phone 1", max_length=60, null=True, blank=True)
     email = models.EmailField("Email", null=True, blank=True)
@@ -82,6 +83,7 @@ class Banner(AuditoriaFecha):
 
 class About(AuditoriaFecha):
     image = models.ImageField(upload_to='about/', null=True, blank=True)
+    image_mission_vision = models.ImageField(upload_to='about/', null=True, blank=True)
     about = RichTextField("About", null=True, blank=True)
     mision = RichTextField("Mission", null=True, blank=True)
     vision = RichTextField("Vision", null=True, blank=True)
@@ -139,6 +141,7 @@ class Counter(AuditoriaFecha):
 
 class Service(AuditoriaFecha):
     image = models.ImageField(upload_to='service/', null=True, blank=True)
+    image_large = models.ImageField(upload_to='service/', null=True, blank=True)
     icon = models.ImageField(upload_to='Icon/', null=True, blank=True)
     title = models.CharField("Service Name", max_length=300, null=True, blank=True)
     description = RichTextField("Description", null=True, blank=True)

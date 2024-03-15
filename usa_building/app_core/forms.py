@@ -21,9 +21,10 @@ STARS_REVIEW_CHOICES = [
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ['location', 'phone1', 'phone2', 'email', 'latitude', 'longitude']
+        fields = ['location', 'city', 'phone1', 'phone2', 'email', 'latitude', 'longitude']
         widgets = {
             'location': forms.TextInput(attrs={'class': 'form-control'}),
+            'city': forms.TextInput(attrs={'class': 'form-control'}),
             'phone1': forms.TextInput(attrs={'class': 'form-control'}),
             'phone2': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'type': 'email'}),
@@ -46,7 +47,7 @@ class BannerForm(forms.ModelForm):
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ['image', 'about', 'mision', 'vision', 'image_google', 'url_google']
+        fields = ['image', 'image_mission_vision', 'about', 'mision', 'vision', 'image_google', 'url_google']
         widgets = {
             'url_google': forms.TextInput(attrs={'class': 'form-control', 'type': 'url'}),
         }
@@ -86,7 +87,7 @@ class CounterForm(forms.ModelForm):
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service
-        fields = ['image', 'icon', 'title', 'description', 'description_finish']
+        fields = ['image', 'image_large', 'icon', 'title', 'description', 'description_finish']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'description_finish': forms.Textarea(attrs={'class': 'resizable_textarea form-control'}),

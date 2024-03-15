@@ -341,13 +341,13 @@
             if (scrollTop > amountScrolled && is_phone) {
                 link_body_movil.style.display = 'block';
             } else {
-                link_body_movil.style.display = 'none';
+                jQuery(link_body_movil).fadeOut(1000);
             }
 
             if (scrollTop > amountScrolled && !is_phone) {
                 link_body_web.style.display = 'block';
             } else {
-                link_body_web.style.display = 'none';
+                jQuery(link_body_web).fadeOut(1000);
             }
         });
 

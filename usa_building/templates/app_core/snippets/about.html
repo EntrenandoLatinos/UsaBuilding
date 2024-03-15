@@ -6,13 +6,13 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.3s">
                 <div class="radius-sm m-b30 img-ho1">
-                    <img src="{% static 'app_core/images/about/pic11.jpg' %}" alt=""/>
+                    <img src="{{about.image.url}}" alt=""/>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.6s">
                 <div class="content-bx1">
                     <div class="about-year">
-                        <span>26</span>
+                        <span>10</span>
                         <p>Years<br/>Experience<br/>Working</p>
                     </div>
                     <div class="section-head style2">
@@ -21,8 +21,8 @@
                             {{about.about|safe}}
                         </div>
                     </div>
-                    <a href="portfolio-details.html" class="site-button m-r10 m-b10 btnhover20">View Portfolio</a>
-                    <a href="about-1.html" class="site-button black m-b10 btnhover20">About Us</a>
+                    <a href="{% url 'app_core:works' %}" class="site-button m-r10 m-b10 btnhover20">View Portfolio</a>
+                    <a href="{% url 'app_core:about' %}" class="site-button black m-b10 btnhover20">About Us</a>
                 </div>
             </div>
         </div>
