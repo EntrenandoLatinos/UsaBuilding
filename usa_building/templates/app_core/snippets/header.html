@@ -108,7 +108,7 @@
                             <a href="javascript:;">Services<i class="fa fa-chevron-down"></i></a>
                             <ul class="sub-menu">
                                 {% for servicio in servicios %}
-                                    <li><a href="{% url 'app_core:services_view' servicio.id %}">Roofing</a></li>
+                                    <li><a href="{% url 'app_core:services_view' servicio.id %}">{{servicio.title}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
