@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 m-b30 our-story-thum">
-                <img src="{% static 'app_core/images/about/pic6.jpg' %}" class="radius-sm" alt="">
+                <img src="{{about.image.url}}" class="radius-sm" alt="">
             </div>
         </div>
     </div>
@@ -62,12 +62,12 @@
 <div class="section-full box-about-list">
     <div class="row spno">
         <div class="col-lg-6 col-md-12"> 
-            <img src="{% static 'app_core/images/about/pic3.jpg' %}" alt="" class="img-cover"/> 
+            <img src="{{about.image_mission_vision.url}}" alt="" class="img-cover"/> 
         </div>
         <div class="col-lg-6 col-md-12 bg-primary">
-            <div class="max-w700 m-auto p-tb50 p-lr20">
+            <div class="max-w1000 m-auto p-tb50 p-lr20">
                 <div class="text-white">
-                    <h2>Mission & Vision <br/>Statements</h2>
+                    <h2>Mission & Vision Statements</h2>
                 </div>
                 
                 <div class="icon-bx-wraper m-b30 left">
