@@ -18,7 +18,7 @@ def index(request):
     servicios = Service.objects.all()
     works = WorkImage.objects.all().order_by('?')[:6]
     testimonials = Testimonial.objects.all().order_by('?')
-    partners = Partner.objects.all()
+    partners = Partner.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
     context = {
         'contact': contact,
@@ -56,6 +56,7 @@ def about(request):
     testimonials = Testimonial.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
     works = WorkImage.objects.all().order_by('?')[:1]
+    partners = Partner.objects.all().order_by('?')
     context = {
         'contact': contact,
         'servicios': servicios,
@@ -63,6 +64,7 @@ def about(request):
         'indicators': indicators,
         'skills': skills,
         'testimonials': testimonials,
+        'partners': partners,
         'works': works,
         'social_media': social_media
     }

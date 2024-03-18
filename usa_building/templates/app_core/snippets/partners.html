@@ -5,36 +5,13 @@
     <div class="container">
         <div class="section-content">
             <div class="client-logo-carousel mfp-gallery gallery owl-btn-center-lr owl-carousel owl-btn-3">
-                <div class="item">
-                    <div class="ow-client-logo">
-                        <div class="client-logo"><a href="javascript:void(0);"><img src="{% static 'app_core/images/client-logo/logo1.jpg' %}" alt=""></a></div>
+                {% for partner in partners %}
+                    <div class="item">
+                        <div class="ow-client-logo">
+                            <div class="client-logo"><a href="javascript:void(0);"><img src="{{partner.image.url}}" alt=""></a></div>
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="ow-client-logo">
-                        <div class="client-logo"> <a href="javascript:void(0);"><img src="{% static 'app_core/images/client-logo/logo2.jpg' %}" alt=""></a> </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ow-client-logo">
-                        <div class="client-logo"> <a href="javascript:void(0);"><img src="{% static 'app_core/images/client-logo/logo1.jpg' %}" alt=""></a> </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ow-client-logo">
-                        <div class="client-logo"> <a href="javascript:void(0);"><img src="{% static 'app_core/images/client-logo/logo3.jpg' %}" alt=""></a> </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ow-client-logo">
-                        <div class="client-logo"> <a href="javascript:void(0);"><img src="{% static 'app_core/images/client-logo/logo4.jpg' %}" alt=""></a> </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ow-client-logo">
-                        <div class="client-logo"> <a href="javascript:void(0);"><img src="{% static 'app_core/images/client-logo/logo3.jpg' %}" alt=""></a> </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
