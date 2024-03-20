@@ -26,4 +26,21 @@
 
 {% endblock content %}
 
-{% block extra_javascript %}{% endblock extra_javascript %}
+{% block extra_javascript %}
+<script>
+    // Seleccionar todos los elementos con la clase "custom_list"
+    const customListElements = document.querySelectorAll('.custom_list');
+
+    // Iterar sobre cada elemento con la clase "custom_list"
+    customListElements.forEach((element) => {
+        // Seleccionar los elementos <ul> dentro del elemento actual con la clase "custom_list"
+        const ulElements = element.querySelectorAll('ul');
+
+        // Iterar sobre cada elemento <ul>
+        ulElements.forEach((ul) => {
+            // Agregar la clase deseada al elemento <ul>
+            ul.classList.add('list-circle', 'primary', 'm-a0');
+        });
+    });
+</script>
+{% endblock extra_javascript %}

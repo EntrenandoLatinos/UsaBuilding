@@ -113,6 +113,7 @@ def services_view(request, pk):
     servicio = get_object_or_404(Service, pk=pk)
     subservicios = SubService.objects.filter(service=pk)
     works = WorkImage.objects.all().order_by('?')[:1]
+    partners = Partner.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
     context = {
         'contact': contact,
@@ -120,6 +121,7 @@ def services_view(request, pk):
         'servicios': servicios,
         'subservicios': subservicios,
         'works': works,
+        'partners': partners,
         'social_media': social_media
     }
     if request.method == 'POST':
@@ -142,11 +144,13 @@ def works(request):
     gallery = WorkImage.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
     about = About.objects.all().last()
+    partners = Partner.objects.all().order_by('?')
     context = {
         'contact': contact,
         'servicios': servicios,
         'works': gallery,
         'about': about,
+        'partners': partners,
         'social_media': social_media
     }
     if request.method == 'POST':
@@ -169,11 +173,13 @@ def faq(request):
     servicios = Service.objects.all()
     works = WorkImage.objects.all().order_by('?')[:1]
     social_media = SocialMedia.objects.all()
+    partners = Partner.objects.all().order_by('?')
     context = {
         'contact': contact,
         'servicios': servicios,
         'faqs': faqs,
         'social_media': social_media,
+        'partners': partners,
         'works': works
     }
     if request.method == 'POST':
@@ -197,12 +203,14 @@ def contact(request):
     social_media = SocialMedia.objects.all()
     works = WorkImage.objects.all().order_by('?')[:1]
     about = About.objects.all().last()
+    partners = Partner.objects.all().order_by('?')
     context = {
         'servicios': servicios,
         'contact': contact,
         'about': about,
         'testimonials': testimonials,
         'social_media': social_media,
+        'partners': partners,
         'works': works
     }
     if request.method == 'POST':
@@ -235,12 +243,14 @@ def privacy(request):
     servicios = Service.objects.all()
     privacy = Privacy.objects.all().last()
     social_media = SocialMedia.objects.all()
+    partners = Partner.objects.all().order_by('?')
     works = WorkImage.objects.all().order_by('?')[:1]
     context = {
         'contact': contact,
         'servicios': servicios,
         'privacy': privacy,
         'social_media': social_media,
+        'partners': partners,
         'works': works
     }
     if request.method == 'POST':

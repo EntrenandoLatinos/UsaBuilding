@@ -31,7 +31,7 @@
                                         <h2 class="title">{{servicio.title}} <span class="text-primary"></span></h2>
                                         <!-- <h4 class="title">{{servicio.description|safe}}</h4> -->
                                         <div class="title">{{servicio.description|safe}}</div>
-                                        {{servicio.description_finish|truncatewords:54|safe}}
+                                        {{servicio.description_finish|truncatewords:50|safe}}
                                         <br>
                                         <a href="{% url 'app_core:services_view' servicio.id %}" class="site-button btnhover16">Read More</a>
                                     </div>

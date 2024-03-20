@@ -104,6 +104,7 @@ class Contact(AuditoriaFecha):
     phone1 = models.CharField("Phone 2", max_length=60, null=True, blank=True)
     phone2 = models.CharField("Phone 1", max_length=60, null=True, blank=True)
     email = models.EmailField("Email", null=True, blank=True)
+    image_contact = models.ImageField(upload_to='contact/', null=True, blank=True)
     latitude = models.FloatField("latitude", null=True, blank=True)
     longitude = models.FloatField("longitude", null=True, blank=True)
 
@@ -172,15 +173,19 @@ class Counter(AuditoriaFecha):
     title1 = models.CharField("Title 1", max_length=300, null=True, blank=True)
     number1 = models.IntegerField("Number 1", null=True, blank=True)
     symbol1 = models.CharField("Symbol 1", max_length=300, null=True, blank=True)
+    icon1 = models.CharField("Icon 1", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title2 = models.CharField("Title 2", max_length=300, null=True, blank=True)
     number2 = models.IntegerField("Number 2", null=True, blank=True)
     symbol2 = models.CharField("Symbol 2", max_length=300, null=True, blank=True)
+    icon2 = models.CharField("Icon 2", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title3 = models.CharField("Title 3", max_length=300, null=True, blank=True)
     number3 = models.IntegerField("Number 3", null=True, blank=True)
     symbol3 = models.CharField("Symbol 3", max_length=300, null=True, blank=True)
+    icon3 = models.CharField("Icon 3", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title4 = models.CharField("Title 4", max_length=300, null=True, blank=True)
     number4 = models.IntegerField("Number 4", null=True, blank=True)
     symbol4 = models.CharField("Symbol 4", max_length=300, null=True, blank=True)
+    icon4 = models.CharField("Icon 4", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
 
     def __str__(self):
         return "{0}".format(str(self.title1))
@@ -194,6 +199,7 @@ class Counter(AuditoriaFecha):
 class Service(AuditoriaFecha):
     image = models.ImageField(upload_to='service/', null=True, blank=True)
     image_large = models.ImageField(upload_to='service/', null=True, blank=True)
+    image_small = models.ImageField(upload_to='service/', null=True, blank=True)
     icon = models.CharField("Icon", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title = models.CharField("Service Name", max_length=300, null=True, blank=True)
     description = RichTextField("Description", null=True, blank=True)
