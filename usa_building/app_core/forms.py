@@ -74,7 +74,7 @@ FLATICON_ICONS_CHOICES = [
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ['location', 'city', 'phone1', 'phone2', 'email', 'latitude', 'longitude']
+        fields = ['location', 'city', 'phone1', 'phone2', 'email', 'image_contact', 'latitude', 'longitude']
         widgets = {
             'location': forms.TextInput(attrs={'class': 'form-control'}),
             'city': forms.TextInput(attrs={'class': 'form-control'}),
@@ -119,22 +119,63 @@ class SkillForm(forms.ModelForm):
         }
 
 class CounterForm(forms.ModelForm):
+    icon1 = forms.ChoiceField(
+        choices=FLATICON_ICONS_CHOICES, 
+        label='Icon 1', 
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    icon2 = forms.ChoiceField(
+        choices=FLATICON_ICONS_CHOICES, 
+        label='Icon 2', 
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    icon3 = forms.ChoiceField(
+        choices=FLATICON_ICONS_CHOICES, 
+        label='Icon 3', 
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    icon4 = forms.ChoiceField(
+        choices=FLATICON_ICONS_CHOICES, 
+        label='Icon 4', 
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
     class Meta:
         model = Counter
-        fields = ['title1', 'number1', 'symbol1', 'title2', 'number2', 'symbol2', 'title3', 'number3', 'symbol3', 'title4', 'number4', 'symbol4']
+        fields = [
+            'title1', 
+            'number1', 
+            'symbol1', 
+            'icon1',
+            'title2', 
+            'number2', 
+            'symbol2',
+            'icon2', 
+            'title3', 
+            'number3', 
+            'symbol3',
+            'icon3', 
+            'title4', 
+            'number4', 
+            'symbol4',
+            'icon4'
+        ]
         widgets = {
             'title1': forms.TextInput(attrs={'class': 'form-control'}),
             'number1': forms.NumberInput(attrs={'class': 'form-control', 'type': 'number'}),
             'symbol1': forms.TextInput(attrs={'class': 'form-control'}),
+            'icon1': forms.Select(attrs={'class': 'form-control'}),
             'title2': forms.TextInput(attrs={'class': 'form-control'}),
             'number2': forms.NumberInput(attrs={'class': 'form-control', 'type': 'number'}),
             'symbol2': forms.TextInput(attrs={'class': 'form-control'}),
+            'icon2': forms.Select(attrs={'class': 'form-control'}),
             'title3': forms.TextInput(attrs={'class': 'form-control'}),
             'number3': forms.NumberInput(attrs={'class': 'form-control', 'type': 'number'}),
             'symbol3': forms.TextInput(attrs={'class': 'form-control'}),
+            'icon3': forms.Select(attrs={'class': 'form-control'}),
             'title4': forms.TextInput(attrs={'class': 'form-control'}),
             'number4': forms.NumberInput(attrs={'class': 'form-control', 'type': 'number'}),
             'symbol4': forms.TextInput(attrs={'class': 'form-control'}),
+            'icon4': forms.Select(attrs={'class': 'form-control'}),
         }
 
 class ServiceForm(forms.ModelForm):
@@ -145,7 +186,7 @@ class ServiceForm(forms.ModelForm):
     )
     class Meta:
         model = Service
-        fields = ['image', 'image_large', 'icon', 'title', 'description', 'description_finish']
+        fields = ['image', 'image_large', 'image_small', 'icon', 'title', 'description', 'description_finish']
         widgets = {
             'icon': forms.Select(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),

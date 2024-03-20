@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="dlab-post-media dlab-img-effect zoom-slow"> 
-                <a href="blog-single.html"><img src="{{servicio.image_large.url}}" alt=""></a> 
+                <a href="javascript:;"><img src="{{servicio.image_large.url}}" alt="{{servicio.title}}"></a> 
             </div>
             <div class="dlab-post-text">
                 {{servicio.description|safe}}
@@ -33,7 +33,7 @@
                         </div>    
                         <div class="row">
                             <div class="col-md-6">
-                                <img class="alignleft" width="600" src="{% static 'app_core/images/blog/grid/pic4.jpg' %}" alt="">
+                                <img class="alignleft" width="600" src="{{subservice.image.url}}" alt="">
                             </div>
                             <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
                                 <p>{{subservice.description|safe}}</p>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <img class="alignright" width="600" src="{% static 'app_core/images/blog/grid/pic1.jpg' %}" alt="">
+                                <img class="alignright" width="600" src="{{subservice.image.url}}" alt="">
                             </div>
                             <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
                                 <p>{{subservice.description|safe}}</p>
