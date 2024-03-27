@@ -28,6 +28,66 @@ SOCIAL_MEDIA_CHOICES = [
     ('06', 'LinkedIn'),
 ]
 
+STARS_REVIEW_CHOICES = [
+    ('1', '1'),
+    ('2', '2'),
+    ('3', '3'),
+    ('4', '4'),
+    ('5', '5'),
+]
+
+FLATICON_ICONS_CHOICES = [
+    ('01', 'flaticon-factory'),
+    ('02', 'flaticon-factory-1'),
+    ('03', 'flaticon-engineer'),
+    ('04', 'flaticon-valve'),
+    ('05', 'flaticon-conveyor'),
+    ('06', 'flaticon-oil'),
+    ('07', 'flaticon-truck'),
+    ('08', 'flaticon-forklift'),
+    ('09', 'flaticon-voltmeter'),
+    ('10', 'flaticon-fuel-truck'),
+    ('11', 'flaticon-gear'),
+    ('12', 'flaticon-fuel-station'),
+    ('13', 'flaticon-robotic-arm'),
+    ('14', 'flaticon-product'),
+    ('15', 'flaticon-worker'),
+    ('16', 'flaticon-robot-arm'),
+    ('17', 'flaticon-help'),
+    ('18', 'flaticon-conveyor-1'),
+    ('19', 'flaticon-factory-2'),
+    ('20', 'flaticon-optimization'),
+    ('21', 'flaticon-wrench'),
+    ('22', 'flaticon-crane'),
+    ('23', 'flaticon-engineer-1'),
+    ('24', 'flaticon-design-tools'),
+    ('25', 'flaticon-construction'),
+    ('26', 'flaticon-settings'),
+    ('27', 'flaticon-idea'),
+    ('28', 'flaticon-calculator'),
+    ('29', 'flaticon-cpu'),
+    ('30', 'flaticon-repair-tools'),
+    ('31', 'flaticon-internet'),
+    ('32', 'flaticon-analytics'),
+    ('33', 'flaticon-printer'),
+    ('34', 'flaticon-helmet'),
+    ('35', 'flaticon-presentation'),
+    ('36', 'flaticon-alarm-clock'),
+    ('37', 'flaticon-bar-chart'),
+    ('38', 'flaticon-microphone'),
+    ('39', 'flaticon-shield'),
+    ('40', 'flaticon-loupe'),
+    ('41', 'flaticon-settings-1'),
+    ('42', 'flaticon-monitor'),
+    ('43', 'flaticon-shopping-cart'),
+    ('44', 'flaticon-home'),
+    ('45', 'flaticon-message'),
+    ('46', 'flaticon-heart'),
+    ('47', 'flaticon-user'),
+    ('48', 'flaticon-play-button'),
+    ('49', 'flaticon-planet-earth'),
+    ('50', 'flaticon-settings-2'),
+]
 
 # Create your models here.
 class AuditoriaFecha(models.Model):
@@ -40,9 +100,11 @@ class AuditoriaFecha(models.Model):
 
 class Contact(AuditoriaFecha):
     location = models.CharField("Location", max_length=300, null=True, blank=True)
+    city = models.CharField("City", max_length=100, null=True, blank=True)
     phone1 = models.CharField("Phone 2", max_length=60, null=True, blank=True)
     phone2 = models.CharField("Phone 1", max_length=60, null=True, blank=True)
     email = models.EmailField("Email", null=True, blank=True)
+    image_contact = models.ImageField(upload_to='contact/', null=True, blank=True)
     latitude = models.FloatField("latitude", null=True, blank=True)
     longitude = models.FloatField("longitude", null=True, blank=True)
 
@@ -74,6 +136,7 @@ class Banner(AuditoriaFecha):
 
 class About(AuditoriaFecha):
     image = models.ImageField(upload_to='about/', null=True, blank=True)
+    image_mission_vision = models.ImageField(upload_to='about/', null=True, blank=True)
     about = RichTextField("About", null=True, blank=True)
     mision = RichTextField("Mission", null=True, blank=True)
     vision = RichTextField("Vision", null=True, blank=True)
@@ -110,15 +173,19 @@ class Counter(AuditoriaFecha):
     title1 = models.CharField("Title 1", max_length=300, null=True, blank=True)
     number1 = models.IntegerField("Number 1", null=True, blank=True)
     symbol1 = models.CharField("Symbol 1", max_length=300, null=True, blank=True)
+    icon1 = models.CharField("Icon 1", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title2 = models.CharField("Title 2", max_length=300, null=True, blank=True)
     number2 = models.IntegerField("Number 2", null=True, blank=True)
     symbol2 = models.CharField("Symbol 2", max_length=300, null=True, blank=True)
+    icon2 = models.CharField("Icon 2", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title3 = models.CharField("Title 3", max_length=300, null=True, blank=True)
     number3 = models.IntegerField("Number 3", null=True, blank=True)
     symbol3 = models.CharField("Symbol 3", max_length=300, null=True, blank=True)
+    icon3 = models.CharField("Icon 3", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title4 = models.CharField("Title 4", max_length=300, null=True, blank=True)
     number4 = models.IntegerField("Number 4", null=True, blank=True)
     symbol4 = models.CharField("Symbol 4", max_length=300, null=True, blank=True)
+    icon4 = models.CharField("Icon 4", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
 
     def __str__(self):
         return "{0}".format(str(self.title1))
@@ -131,10 +198,12 @@ class Counter(AuditoriaFecha):
 
 class Service(AuditoriaFecha):
     image = models.ImageField(upload_to='service/', null=True, blank=True)
-    icon = models.ImageField(upload_to='Icon/', null=True, blank=True)
+    image_large = models.ImageField(upload_to='service/', null=True, blank=True)
+    image_small = models.ImageField(upload_to='service/', null=True, blank=True)
+    icon = models.CharField("Icon", max_length=2, choices=FLATICON_ICONS_CHOICES, null=True, blank=True)
     title = models.CharField("Service Name", max_length=300, null=True, blank=True)
     description = RichTextField("Description", null=True, blank=True)
-    description_finish = models.TextField("Finish Description", null=True, blank=True)
+    description_finish = RichTextField("Finish Description", null=True, blank=True)
 
     def __str__(self):
         return "{0}".format(str(self.title))
@@ -218,6 +287,8 @@ class Testimonial(AuditoriaFecha):
     image = models.ImageField(upload_to='testimonial/', null=True, blank=True)
     name = models.CharField("Name", max_length=300, null=True, blank=True)
     location = models.CharField("Location", max_length=300, null=True, blank=True)
+    stars = models.CharField("Stars", max_length=1, choices=STARS_REVIEW_CHOICES, null=True, blank=True)
+    url = models.URLField("URL", null=True, blank=True)
     description = models.TextField("Description", null=True, blank=True)
 
     def __str__(self):

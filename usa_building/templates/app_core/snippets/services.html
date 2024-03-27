@@ -1,2 +1,65 @@
 {% load static %}
 
+<div class="section-full content-inner bg-white wow fadeIn" data-wow-duration="2s" data-wow-delay="0.4s">
+    <div class="container">
+        <div class="on-show-slider "> 
+            <div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
+                
+                {% for servicio in servicios %}
+                    <div class="item">
+                        <div class="project-owbx">
+                            <i class="{{servicio.get_icon_display}}"></i>
+                            <h4 class="title">{{servicio.title}}</h4>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div id="sync1" class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
+                
+                {% for servicio in servicios %}
+                    {% if not forloop.counter|divisibleby:"2" %}
+                        <div class="item">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6 m-b30">
+                                    <img src="{{servicio.image.url}}" class="radius-sm" alt="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 m-b30">
+                                    <div class="our-story content-bx1">
+                                        <span>SERVICE</span>
+                                        <!-- <h2 class="title">Trusted Factory <br/>Solutions <span class="text-primary">since 1955</span></h2> -->
+                                        <h2 class="title">{{servicio.title}} <span class="text-primary"></span></h2>
+                                        <!-- <h4 class="title">{{servicio.description|safe}}</h4> -->
+                                        <div class="title">{{servicio.description|safe}}</div>
+                                        {{servicio.description_finish|truncatewords:50|safe}}
+                                        <br>
+                                        <a href="{% url 'app_core:services_view' servicio.id %}" class="site-button btnhover16">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="item">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6 m-b30">
+                                    <div class="our-story">
+                                        <span>SERVICE</span>
+                                        <h2 class="title">{{servicio.title}} <span class="text-primary"></span></h2>
+                                        <div class="title">{{servicio.description|safe}}</div>
+                                        {{servicio.description|safe}}
+                                        <a href="{% url 'app_core:services_view' servicio.id %}" class="site-button btnhover16">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 m-b30">
+                                    <img src="{{servicio.image.url}}" class="radius-sm" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+
+    </div>
+</div>
